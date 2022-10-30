@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Training, Examination, Audit, and Certification services for a wide range of ISO standards | PECB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Carousel Slider -->
+    <link href="css/owl-carousel.css" rel="stylesheet">
+
+    <!-- CSS Animations -->
+    <link href="css/animate.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,400italic,300italic,700,700italic,900'
+        rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo:400,300,600,500,400italic,700italic,800,900' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,600,500,400italic,700italic,800,900'
+        rel='stylesheet' type='text/css' />
+    <!-- SLIDER ROYAL CSS SETTINGS -->
+    <!-- Bootstrap Styles -->
+
+    <style>
+        div.transbox {
+            background-color: #ffffff;
+            opacity: 0.5;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        #divChat::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #divChat::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+        }
+
+        #divChat::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #D62929;
+        }
+
+        .modal-body #livecam {
+            float: left;
+        }
+
+        .modal-body #right {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="modal fade" id="cameraSelector" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="width:400px;margin-left:250px">
+                <div class="modal-header">
+                    <h4 style="padding: 0px;" class="modal-title">Choose your camera</h4>
+                </div>
+                <div class="modal-body" style="padding: 10px;">
+                    <div style="width:100%; padding:5px;">
+                        <p><strong>Video source: </strong> <select id="videoSources"></select></p>
+                        <video id="cameraPreview" width="367px" autoplay muted></video>
+                    </div>
+                </div>
+                <div class="modal-footer" style="margin-top:0px; padding:3px;">
+                    <input type="button" class="btn btn-primary" onclick="closeCameraSelector()" value="OK" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="genericModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="width:400px;margin-left:250px">
+                <div class="modal-header">
+                    <h4 style="padding: 0px;" class="modal-title"></h4>
+                </div>
+                <div class="modal-body" style="padding: 10px;">
+                    <div style="width:100%; padding:5px;">
+                        <p id="genericModalMessage"></p>
+                    </div>
+                </div>
+                <div class="modal-footer" style="margin-top:0px; padding:3px;">
+                    <input type="button" class="btn btn-primary" data-dismiss="modal" value="Close" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header id="header-style-1" style="padding-bottom: 0px; border-bottom: 2px solid #ca2024;">
+        <div class="container">
+            <nav class="navbar yamm navbar-default">
+                <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1"
+                        class="navbar-toggle"></button>
+                    <a href="#">
+                        <img style="height:50px" src="images/logo.svg" />
+                    </a>
+                </div><!-- end navbar-header -->
+
+
+            </nav><!-- end navbar yamm navbar-default -->
+        </div><!-- end container -->
+    </header><!-- end header-style-1 -->
+
+    <section id="white-wrapper">
+        <div class="container">
+            <div class="custom-services" style="height: 700px !important">
+                <div class="row">
+                    <div id="rules_content" class="col-md-12">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="font-size: 17px; margin-top:20px; color: black; font-weight: 500;">
+                            <b>
+                                Your system monitoring
+                            </b>
+                        </p>
+                        <p style="font-size: 15px; color: black; font-weight: 500;">
+                        <ul>
+                            <li>
+                                Checking webcam
+                                <img id="webcamCheckImage" height="20px" width="20px" src="images/loader.gif"
+                                    style="position: absolute; right: 20px; top:58px" />
+                            </li>
+                            <li>
+                                Checking internet speed <strong>(this may take a while...)</strong>
+                                <img id="internetCheckImage" height="20px" width="20px" src="images/loader.gif"
+                                    style="position: absolute; right: 20px; top:80px" />
+                            </li>
+                            <li>
+                                Microphone
+                                <img id="microphoneCheckImage" height="20px" width="20px" src="images/loader.gif"
+                                    style="position: absolute; right:20px;top:103px" />
+                            </li>
+                            <li>
+                                Connection to server
+                                <img id="rtcSocketImage" height="20px" width="20px" src="images/loader.gif"
+                                    style="position: absolute; right:20px;top:125px" />
+                            </li>
+                            <h1 id="progress"></h1>
+
+                        </ul>
+                        </p>
+
+                    </div>
+                </div>
+                <!-- 
+                <button id="btnContinue" class="btn btn-primary center-block" style="margin-top: 20px; display: none; width: 130px; float:right">Success</button> -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+
+    </section>
+    <div id="copyrights" style="background-color:#ffffff; color:#000000;  width: 100%; bottom: 0;">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="copyright-text">
+                    <p style="text-align:center; font-size: 18px; font-family: 'Roboto', sans-serif;">Copyright ©
+                        <script type="text/javascript">
+                            document.write(new Date().getFullYear());
+                        </script> <a href="#">PECB</a>
+                    </p>
+                </div><!-- end copyright-text -->
+            </div><!-- end widget -->
+
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <!-- Main Scripts-->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/jquery.simple-text-rotator.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/custom-portfolio-masonry.js"></script>
+    <script src="api_js/hardware.js"></script>
+    <script src="api_js/api.js"></script>
+    <script src="api_js/wrtc_tx.js"></script>
+    <script src="api_js/adapter.js"></script>
+    <script src="js/jquery.speedtest.js"></script>
+
+    <!--ec2-34-195-204-189.compute-1.amazonaws.com-->
+    <script src='http://ec2-34-195-204-189.compute-1.amazonaws.com:12345/socket.io/socket.io.js'></script>
+    <script src="api_js/rtc_connection.js"></script>
+
+
+
+    <script type="text/javascript">
+
+        //JUST AN EXAMPLE, PLEASE USE YOUR OWN PICTURE!
+        var imageAddr = "http://www.kenrockwell.com/contax/images/g2/examples/31120037-5mb.jpg";
+        var downloadSize = 4995374; //bytes
+
+        function ShowProgressMessage(msg) {
+            if (console) {
+                if (typeof msg == "string") {
+                    console.log(msg);
+                } else {
+                    for (var i = 0; i < msg.length; i++) {
+                        console.log(msg[i]);
+                    }
+                }
+            }
+
+            var oProgress = document.getElementById("progress");
+            if (oProgress) {
+                var actualHTML = (typeof msg == "string") ? msg : msg.join("<br />");
+                oProgress.innerHTML = actualHTML;
+            }
+        }
+
+        function InitiateSpeedDetection() {
+            //ShowProgressMessage("Loading the image, please wait...");
+            window.setTimeout(MeasureConnectionSpeed, 1);
+        };
+
+        if (window.addEventListener) {
+            window.addEventListener('load', InitiateSpeedDetection, false);
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', InitiateSpeedDetection);
+        }
+
+        function MeasureConnectionSpeed() {
+            var startTime, endTime;
+            var download = new Image();
+            download.onload = function () {
+                endTime = (new Date()).getTime();
+                showResults();
+            }
+
+            download.onerror = function (err, msg) {
+                ShowProgressMessage("Please disable any Firewall or AntiVirus software and try again!");
+            }
+
+            startTime = (new Date()).getTime();
+            var cacheBuster = "?nnn=" + startTime;
+            download.src = imageAddr + cacheBuster;
+
+            function showResults() {
+                var duration = (endTime - startTime) / 1000;
+                var bitsLoaded = downloadSize * 8;
+                var speedBps = (bitsLoaded / duration).toFixed(2);
+                var speedKbps = (speedBps / 1024).toFixed(2);
+                var speedMbps = (speedKbps / 1024).toFixed(2);
+                if (speedMbps > uploadLimit) {
+
+                    setState('internetCheckImage', 1);
+                    netOK = true;
+                    netComplete = true;
+
+                    //showContinueButton();
+                }
+                else {
+                    console.log('rtcComplete && !rtcOK', rtcComplete && !rtcOK)
+                    //User may be reading the RTC error, which is more important
+                    if (!(rtcComplete && !rtcOK))
+                        showMessage("<strong>Download or upload speed too low.</strong> " +
+                            "<br>Download: <strong>" + speedMbps + "mb/s</strong>, min " + uploadLimit + "mb/s");
+
+                    setState('internetCheckImage', 0);
+                    netOK = false;
+                    netComplete = true;
+
+                    //showContinueButton();
+                }
+                ShowProgressMessage([
+                    //setState('internetCheckImage', 1)
+                    // "Your connection speed is:", 
+                    // speedBps + " bps", 
+                    // speedKbps + " kbps", 
+                    // speedMbps + " Mbps"
+                ]);
+            }
+        }
+        var camOK = true;
+        var micOK = true;
+        var netOK = true;
+        var rtcOK = true;
+
+        var netComplete = false;
+        var rtcComplete = false;
+
+        const downloadLimit = 0.5;
+        const uploadLimit = 0.5;
+
+        var videoElement = document.getElementById('cameraPreview');
+        var pingHandle = null;
+
+        $(document).ready(function () {
+
+            window.stream = null;
+
+            $('#cameraSelector').modal('show');
+            $('#videoSources').change(showPreview);
+
+            $('#rules_content').append('Checking the basics');
+
+            //Internet check took too long
+            setTimeout(function () {
+
+                if (!netComplete) {
+
+                    setState('internetCheckImage', 0);
+                    netOK = false;
+                    netComplete = true;
+
+                    showContinueButton();
+                }
+            }, 30000);
+
+            //Check if connected to RTC server
+            setTimeout(function () {
+
+                if (!messageReceived) {
+
+                    showMessage('Please disable any Firewall or AntiVirus software and try again!<br><br>If this issue persists, please consider changing your computer or Internet connection.', 'Could not connect to the server');
+                    clearInterval(pingHandle);
+                }
+            }, 15000);
+
+            //Checks if a message has been received from the RTC server
+            if (pingHandle == null) {
+                pingHandle = setInterval(function () {
+
+                    if (messageReceived) {
+
+                        setState('rtcSocketImage', true);
+                        rtcOK = true;
+                        rtcComplete = true;
+                        showContinueButton();
+                        clearInterval(pingHandle);
+                    }
+
+                }, 1000);
+                console.log('pingHandle', pingHandle)
+
+            }
+
+            navigator.mediaDevices.enumerateDevices().then(gotSources);
+        });
+
+        function gotSources(sourceInfos) {
+
+            var sourceCount = 0;
+            for (var i = 0; i !== sourceInfos.length; ++i) {
+
+                var sourceInfo = sourceInfos[i];
+
+                if (sourceInfo.kind === 'videoinput') {
+
+                    sourceCount++;
+                    var optionText = sourceInfo.label || 'Camera ' + sourceCount;
+                    var option = "<option value='" + sourceInfo.deviceId + "'>" + optionText + "</option>";
+
+                    $('#videoSources').append(option);
+                }
+            }
+
+            showPreview();
+        }
+
+        function showPreview() {
+
+            if (window.stream == null)
+                videoElement.src = null;
+
+            //Stop stream to prevent the camera from being open
+            stopCurrentStream();
+
+            var videoSource = $('#videoSources').val();
+            setSelectedVideoSource(videoSource);
+
+            var constraints = {
+                video: {
+                    optional: [{
+                        sourceId: videoSource
+                    }]
+                }
+            };
+
+            navigator.webkitGetUserMedia(constraints, successCallback, errorCallback);
+        }
+
+        function successCallback(stream) {
+
+            window.stream = stream;
+            var binaryData = [];
+            binaryData.push(stream);
+            videoElement.src = window.URL.createObjectURL(new Blob(binaryData, { type: "application/zip" }))
+
+            //window.URL.createObjectURL(stream);
+
+            setState('microphoneCheckImage', stream.getVideoTracks().length > 0);
+            setState('webcamCheckImage', stream.getVideoTracks().length > 0);
+        }
+
+        function errorCallback(error) {
+
+            console.log('navigator.webkitGetUserMedia error: ', error);
+
+            setState('microphoneCheckImage', false);
+            setState('webcamCheckImage', false);
+        }
+
+        function stopCurrentStream() {
+
+            if (window.stream == null)
+                return;
+
+            var streamTracks = window.stream.getTracks();
+
+            for (var i = 0; i < streamTracks.length; i++)
+                streamTracks[i].stop()
+
+            window.stream = null;
+        }
+
+        function closeCameraSelector() {
+
+            stopCurrentStream();
+            $('#cameraSelector').modal('hide');
+        }
+
+        function continueToAuthentication() {
+
+            window.location.replace("exam_session.html");
+        }
+
+        function setState(feature, state) {
+
+            if (state)
+                $('#' + feature).attr({ src: 'images/tick_green.png' });
+            else
+                $('#' + feature).attr({ src: 'images/error.png' });
+        }
+
+        function showContinueButton() {
+
+            if (netComplete && rtcComplete) {
+
+                if (rtcOK)
+                    $('#btnContinue').show();
+            }
+        }
+
+        function showMessage(message, title) {
+
+            $('#genericModal .modal-title').html(title);
+            $('#genericModalMessage').html(message);
+
+            $('#genericModal').modal('show');
+        }
+
+    </script>
+</body>
+
+</html>

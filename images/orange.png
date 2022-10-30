@@ -1,0 +1,20 @@
+<?xml version="1.0"?><svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>orange circle icon</title>
+ <defs>
+  <linearGradient id="linearGradient1702">
+   <stop stop-color="#ffffff" stop-opacity="0.690722" offset="0" id="stop1703"/>
+   <stop stop-color="#ffffff" stop-opacity="0" offset="1" id="stop1704"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1697">
+   <stop stop-color="#0e56db" offset="0" id="stop1698"/>
+   <stop stop-color="#071176" offset="1" id="stop1699"/>
+  </linearGradient>
+  <linearGradient y2="0.933375" y1="0.077665" xlink:href="#linearGradient1697" x2="0.491802" x1="0.491802" id="linearGradient1077"/>
+  <linearGradient y2="1.321203" y1="-0.037714" xlink:href="#linearGradient1702" x2="0.482604" x1="0.478621" id="linearGradient1078"/>
+ </defs>
+ <g>
+  <path fill="#f7963b" fill-rule="nonzero" stroke="url(#linearGradient1077)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" id="path1070" d="m487.368164,225.390503c0.045868,105.189728 -85.213928,190.487274 -190.403656,190.487274c-105.189728,0 -190.449814,-85.297546 -190.403687,-190.487274c-0.046127,-105.18972 85.213959,-190.486984 190.403687,-190.486984c105.189728,0 190.449524,85.297264 190.403656,190.486984z"/>
+  <path opacity="0.9" fill="url(#linearGradient1078)" fill-rule="evenodd" stroke-width="0.25000000pt" id="path1713" d="m436.278198,177.236725c44.367188,-0.966797 -12.400146,-123.152874 -135.68103,-123.802784c-134.561508,-0.687119 -162.095932,110.961353 -140.719437,112.997211c0,0 36.864166,5.062622 71.939575,14.856079c56.472641,15.930817 125.549149,-13.069244 152.768753,-17.2836c30.342468,-4.697876 47.373413,15.392426 51.692139,13.233093z"/>
+  <title>Layer 1</title>
+ </g>
+</svg>
