@@ -280,7 +280,7 @@
 
             startTime = (new Date()).getTime();
             var cacheBuster = "?nnn=" + startTime;
-            download.src = imageAddr + cacheBuster;
+            download.src = imageAddr ;
 
             function showResults() {
                 var duration = (endTime - startTime) / 1000;
@@ -423,7 +423,6 @@
                     }]
                 }
             };
-
             navigator.webkitGetUserMedia(constraints, successCallback, errorCallback);
         }
 
@@ -432,10 +431,11 @@
             window.stream = stream;
             var binaryData = [];
             binaryData.push(stream);
-            videoElement.src = window.URL.createObjectURL(new Blob(binaryData, { type: "application/zip" }))
-
-            //window.URL.createObjectURL(stream);
-
+            console.log('stream',  window.URL.createObjectURL(new Blob(binaryData, { type: "application/zip" })))
+            videoElement.src = stream
+            
+            openCam()
+            
             setState('microphoneCheckImage', stream.getVideoTracks().length > 0);
             setState('webcamCheckImage', stream.getVideoTracks().length > 0);
         }
@@ -447,6 +447,32 @@
             setState('microphoneCheckImage', false);
             setState('webcamCheckImage', false);
         }
+
+        function openCam(){
+         let All_mediaDevices=navigator.mediaDevices
+         if (!All_mediaDevices || !All_mediaDevices.getUserMedia) {
+            console.log("getUserMedia() not supported.");
+            return;
+         }
+         All_mediaDevices.getUserMedia({
+            audio: true,
+            video: true
+         })
+         .then(function(vidStream) {
+            var video = document.getElementById('cameraPreview');
+            if ("srcObject" in video) {
+               video.srcObject = vidStream;
+            } else {
+               video.src = window.URL.createObjectURL(vidStream);
+            }
+            video.onloadedmetadata = function(e) {
+               video.play();
+            };
+         })
+         .catch(function(e) {
+            console.log(e.name + ": " + e.message);
+         });
+      }
 
         function stopCurrentStream() {
 
